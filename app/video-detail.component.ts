@@ -7,10 +7,10 @@ import { VideoService } from './video.service';
   template: `
   <ul class='videos'>
   <li *ngFor="let video of videos">
-    <a href="#!/video/{{video.id}}" class="thumb">
+    <a href="/video/{{video.id}}" class="thumb">
 			  <img src="{{video.imageUrl}}" alt="{{video.name}}" />
 			</a>
-			<a href="#!/video/{{video.id}}">{{video.name}}</a>
+			<a href="/video/{{video.id}}">{{video.name}}</a>
 			<p>{{video.description}}</p>
     </li>
     </ul>
@@ -42,8 +42,7 @@ import { VideoService } from './video.service';
   width: 100px;
   margin-left: 10px;
 }
-  `],
-  providers: [VideoService]
+  `]
 })
 export class VideoDetailComponent {
   videos: Video[];

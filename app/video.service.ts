@@ -16,4 +16,9 @@ export class VideoService {
       setTimeout(() => resolve(this.getVideos()), 2000);
     });
   }
+
+  getVideo(id: number): Promise<Video> {
+    return this.getVideos()
+               .then(videos => videos.find(video => video.id === id));
+  }
 }
