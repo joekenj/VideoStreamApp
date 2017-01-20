@@ -1,13 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Video } from './video';
 import { VideoService } from './video.service';
+import { Router } from '@angular/router';
 
 @Component({
+  moduleId: module.id,
   selector: 'my-video-detail',
   template: `
   <ul class='videos'>
-  <li *ngFor="let video of videos">
-    <a href="/video/{{video.id}}" class="thumb">
+  <li *ngFor="let video of videos" [class.selected]="video === selectedVideo"
+    (click)="onSelect(video)">
+    <a  [routerLink]="['/video', video.id]" class="thumb">
 			  <img src="{{video.imageUrl}}" alt="{{video.name}}" />
 			</a>
 			<a href="/video/{{video.id}}">{{video.name}}</a>
@@ -46,7 +49,10 @@ import { VideoService } from './video.service';
 })
 export class VideoDetailComponent {
   videos: Video[];
-  constructor(private videoService: VideoService) { }
+  selectedVideo: Video;
+  constructor(
+    private router: Router,
+    private videoService: VideoService) { }
 
   getVideos(): void {
      this.videoService.getVideos().then(videos => this.videos = videos);
@@ -55,4 +61,13 @@ export class VideoDetailComponent {
    ngOnInit(): void {
     this.getVideos();
   }
+
+  onSelect(video: Video): void {
+    this.selectedVideo = video;
+  }
+
+   gotoDetail(): void {
+    this.router.navigate(['/video', this.selectedVideo.id]);
+  }
+
 }
