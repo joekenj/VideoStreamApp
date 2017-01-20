@@ -1,12 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable }    from '@angular/core';
+import { Headers, Http } from '@angular/http';
 
+import 'rxjs/add/operator/toPromise';
 import { Video } from './video';
-import { VIDEOS } from './mock-videos';
+//import { VIDEOS } from './mock-videos';
 
 @Injectable()
 export class VideoService {
-   getVideos(): Promise<Video[]> {
-    return Promise.resolve(VIDEOS);
+   private videosUrl = 'api/videos';  // URL to web api
+
+  constructor(private http: Http) { }
+
+  getVideos(): Promise<Video[]> {
+    return this.http.get(this.videosUrl)
+               .toPromise()
+               .then(response => response.json().data as Video[])
+               .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
   }
 
   // See the "Take it slow" appendix
@@ -18,7 +32,10 @@ export class VideoService {
   }
 
   getVideo(id: number): Promise<Video> {
-    return this.getVideos()
-               .then(videos => videos.find(video => video.id === id));
+    const url = `${this.videosUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data as Video)
+      .catch(this.handleError);
   }
 }
