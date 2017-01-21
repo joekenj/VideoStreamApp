@@ -1,8 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Video } from './video';
+import { VideoDetailed } from './VideoDetailed';
 import { VideoService } from './video.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
+
+import { Location }               from '@angular/common';
+
+
+
+import 'rxjs/add/operator/switchMap';
 @Component({
   moduleId: module.id,
   selector: 'my-video-detail',
@@ -12,6 +19,8 @@ import { Router } from '@angular/router';
 export class VideoDetailComponent {
   videos: Video[];
   selectedVideo: Video;
+  videoDet: VideoDetailed;
+
   constructor(
     private router: Router,
     private videoService: VideoService) { }
@@ -32,8 +41,10 @@ export class VideoDetailComponent {
     this.router.navigate(['/video', this.selectedVideo.id]);
   }
 
-   myFunction(video: Video): void {
+   generatePopUp(video: Video): void {
+   this.videoService.getVideo(video.id).subscribe(videoDet => this.videoDet = videoDet);
     var popup = document.getElementById('myPopup' + video.id);
     popup.classList.toggle('show');
-}
+  }
+
 }

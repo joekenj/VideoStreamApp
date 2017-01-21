@@ -21,6 +21,7 @@ import 'rxjs/add/operator/switchMap';
 export class VideoPlayComponent implements OnInit{
   videoDet: VideoDetailed;
   video: Video;
+  videos: Video[];
 
   constructor(
     private videoService: VideoService,
