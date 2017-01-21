@@ -1,43 +1,32 @@
-[
-    {
-        "age": 0, 
-        "id": "own-goal", 
-        "imageUrl": "media/thumbnails/Own_goal.JPG", 
-        "name": "Own goal", 
-        "snippet": "Funny own goal by goalkeeper."
-    }, 
-    {
-        "age": 1, 
-        "id": "threadmill", 
-        "imageUrl": "media/thumbnails/Threadmill.JPG",
-		"videoUrl": "media/videos/Threadmill.MP4",
-        "name": "Threadmill", 
-        "snippet": "Threadmill fail on live TV."
-    }, 
-    {
-        "age": 2, 
-        "carrier": "AT&T", 
-        "id": "fire-brigade", 
-        "imageUrl": "media/thumbnails/Fire_Brigade.JPG", 
-		"videoUrl": "media/videos/Fire_Brigade.MP4",
-        "name": "Fire Brigade", 
-        "snippet": "Fire brigade man fail."
-    }, 
-    {
-        "age": 3, 
-        "id": "souvenir-from-france", 
-        "imageUrl": "media/thumbnails/Souvenir_from_France.JPG", 
-		"videoUrl": "media/videos/Souvenir_from_France.MP4",
-        "name": "Souvenir from France", 
-        "snippet": "Great idea what to take from France."
-    }, 
-    {
-        "age": 4, 
-        "carrier": "Cellular South", 
-        "id": "vw-jetta", 
-        "imageUrl": "media/thumbnails/VW_Jetta.JPG", 
-		"videoUrl": "media/videos/VW_Jetta.MP4", 
-        "name": "VW Jetta", 
-        "snippet": "Volkswagen ad for Jetta."
-    }
+[  
+   {  
+      "id":1,
+      "name":"Own Goal",
+      "imageUrl":"app/media/thumbnails/Own_goal.JPG",
+      "description":"Own goal by goalkeer in Premier Leauge."
+   },
+   {  
+      "id":2,
+      "name": "Threadmill fail",
+      "imageUrl":"app/media/thumbnails/Threadmill.JPG",
+      "description": "Threadmill fail on live TV."
+	},
+   {  
+      "id":3,
+      "name":"Fire Brigade",
+      "imageUrl":"app/media/thumbnails/Fire_Brigade.JPG",
+      "description":"Fireman gets hit by water gun."
+   },
+   {  
+      "id":4,
+      "name":"Volkswagen Jetta",
+      "imageUrl":"app/media/thumbnails/VW_Jetta.JPG",
+      "description":"Funny Volkswagen Jetta commercial set in tropics."
+   },
+   {  
+      "id":5,
+      "name":"Souvenir from France",
+      "imageUrl":"app/media/thumbnails/Souvenir_from_France.JPG",
+      "description":"How to take a fancy souvenir from Paris."
+   }
 ]

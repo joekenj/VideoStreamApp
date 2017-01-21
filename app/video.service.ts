@@ -1,21 +1,21 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 import { Video } from './video';
+import { VideoDetailed } from './VideoDetailed';
 //import { VIDEOS } from './mock-videos';
 
 @Injectable()
 export class VideoService {
-   private videosUrl = 'api/videos';  // URL to web api
+   private videosUrl = 'app/videos.json';  // URL to web api
 
   constructor(private http: Http) { }
 
-  getVideos(): Promise<Video[]> {
-    return this.http.get(this.videosUrl)
-               .toPromise()
-               .then(response => response.json().data as Video[])
-               .catch(this.handleError);
+  getVideos(){
+   return this.http.get('/app/media/videos.json')
+    .map((res:Response) => res.json());
   }
 
   private handleError(error: any): Promise<any> {
@@ -23,15 +23,12 @@ export class VideoService {
     return Promise.reject(error.message || error);
   }
 
-  // See the "Take it slow" appendix
-  getVideosSlowly(): Promise<Video[]> {
-    return new Promise(resolve => {
-      // Simulate server latency with 2 second delay
-      setTimeout(() => resolve(this.getVideos()), 2000);
-    });
+  getVideo(id: number) {
+   return this.http.get('/app/media/'+id+'.json')
+    .map((res:Response) => res.json());
   }
-
-  getVideo(id: number): Promise<Video> {
+  
+    getVideoOriginal(id: number): Promise<Video> {
     const url = `${this.videosUrl}/${id}`;
     return this.http.get(url)
       .toPromise()

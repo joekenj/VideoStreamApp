@@ -5,7 +5,7 @@ import { HttpModule }    from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { VideoDetailComponent } from './video-detail.component';
-import { VideoStreamComponent } from './video-stream.component';
+import { VideoPlayComponent } from './video-play.component';
 import { RouterModule }   from '@angular/router';
 import { VideoService } from './video.service';
 
@@ -17,7 +17,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
     RouterModule.forRoot([
   {
     path: 'videos',
@@ -25,7 +25,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
   },
   {
   path: 'video/:id',
-  component: VideoStreamComponent
+  component: VideoPlayComponent
 },
 {
   path: '',
@@ -38,7 +38,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
   declarations: [
     AppComponent,
     VideoDetailComponent,
-    VideoStreamComponent
+    VideoPlayComponent
   ],
   providers: [ VideoService ],
   bootstrap: [ AppComponent ]

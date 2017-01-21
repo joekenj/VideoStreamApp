@@ -17,7 +17,7 @@ export class VideoDetailComponent {
     private videoService: VideoService) { }
 
   getVideos(): void {
-     this.videoService.getVideos().then(videos => this.videos = videos);
+     this.videoService.getVideos().subscribe(videos => this.videos = videos);
   }
 
    ngOnInit(): void {
