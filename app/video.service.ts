@@ -14,7 +14,7 @@ export class VideoService {
   constructor(private http: Http) { }
 
   getVideos(){
-   return this.http.get('http://127.0.0.1:8081/process_get')
+   return this.http.get('http://127.0.0.1:8081/get_videos')
     .map((res:Response) => res.json());
   }
 
