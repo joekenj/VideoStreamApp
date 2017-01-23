@@ -1,6 +1,6 @@
 {
 	"size": 97446,
-	"videoUrl":"app/media/videos/Fire_Brigade.MP4",
+	"videoUrl":"http://127.0.0.1:8081/videos/Fire_Brigade.MP4",
 	"author": "LK",
 	"date": "02-08-2014"
 }

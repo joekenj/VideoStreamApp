@@ -1,6 +1,6 @@
 {
 	"size": 31356,
-	"videoUrl":"app/media/videos/Threadmill.MP4",
+	"videoUrl":"http://127.0.0.1:8081/videos/Threadmill.MP4",
 	"author": "MK",
 	"date": "30-12-2017"
 }

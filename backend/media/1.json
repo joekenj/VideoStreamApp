@@ -1,6 +1,6 @@
 {
 	"size": 10550,
-	"videoUrl":"app/media/videos/Own_goal.MP4",
+	"videoUrl":"http://127.0.0.1:8081/videos/Own_goal.MP4",
 	"author": "JK",
 	"date": "25-7-2015"
 }
