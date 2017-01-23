@@ -11,6 +11,7 @@ import { VideoService } from './video.service';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { AppRoutingModule }     from './app-routing.module';
 
 @NgModule({
   imports: [
@@ -18,22 +19,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
-    RouterModule.forRoot([
-  {
-    path: 'videos',
-    component: VideoDetailComponent
-  },
-  {
-  path: 'video/:id',
-  component: VideoPlayComponent
-},
-{
-  path: '',
-  redirectTo: '/videos',
-  pathMatch: 'full'
-}
-
-])
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,

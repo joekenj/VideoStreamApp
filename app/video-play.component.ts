@@ -1,27 +1,20 @@
 import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
-
+import { Location } from '@angular/common';
 import { Video } from './video';
 import { VideoDetailed } from './VideoDetailed';
 import { VideoService } from './video.service';
 
-import 'rxjs/add/operator/switchMap';
-
 @Component({
-    moduleId: module.id,
+  moduleId: module.id, //for component to be able to find template and style urls
   selector: 'play-video',
   templateUrl: 'video-play.component.html',
-     styles: [`#video-pl {
-       width: 500px;
-       height: 270px;
-     }`]
+  styleUrls: [ 'video-play.component.css' ]
 })
 
 export class VideoPlayComponent implements OnInit{
   videoDet: VideoDetailed;
   video: Video;
-  videos: Video[];
 
   constructor(
     private videoService: VideoService,
@@ -29,6 +22,8 @@ export class VideoPlayComponent implements OnInit{
     private location: Location
   ) {}
 
+  //upon initialisation get details about the video from video.service
+  //and retrive basic information about the video with id
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.videoService.getVideo(+params['id']))

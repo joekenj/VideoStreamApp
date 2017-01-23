@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Video } from './video';
-import { VideoService } from './video.service';
-
-
 
 @Component({
   moduleId: module.id,
@@ -13,5 +9,4 @@ import { VideoService } from './video.service';
     `
 })
 export class AppComponent {
-  
 }
